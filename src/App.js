@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
 function App() {
+
+    const [items, setItems]=React.useState(
+        [
+            {
+                name:"Luke",
+                address:"Some Place in Michigan"
+            },
+            {
+                name:"Steven",
+                address:"Some Place in New York"
+            },
+            {
+                name:"Lisa",
+                address:"Some Place in New York"
+            },
+            {
+                name:"Austin",
+                address:"Some Place in Washington"
+            },
+            {
+                name:"Gus",
+                address:"Some Place in New York"
+            },
+        ]
+    )
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form>
+        <input type={"text"} placeholder={"name...."}/>
+        <input type={"text"} placeholder={"address...."}/>
+          <input type={"submit"} value={"Submit"}/>
+      </form>
+        {
+            items.map((itm,idx)=>
+            <div key={idx}>
+                <h1>{itm.name}</h1>
+                <h3>{itm.address}</h3>
+            </div>
+            )
+        }
     </div>
   );
 }
